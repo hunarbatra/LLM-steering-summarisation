@@ -7,7 +7,7 @@ from utils import read_file
 
 data = read_file('data/test.txt')
 
-def init_overview_prompt(text):
+def init_overview_prompt():
     _prompt = """%s
 
 
@@ -18,7 +18,7 @@ def init_overview_prompt(text):
     return _prompt
 
 def overview_extraction_runner(text):
-    init_prompt = init_overview_prompt(text)
+    init_prompt = init_overview_prompt()
     llm = gpt3(max_tokens=2048, temp=0.0)
     num_tokens = pred_tokens(init_prompt, text, llm)
     print(f'Number of prompt tokens used for overview structure extraction: {num_tokens}')

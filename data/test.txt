@@ -10,21 +10,3 @@ Training AI systems using human feedback
 Training AI systems to assist human evaluation
 Training AI systems to do alignment research
 Aligning AI systems with human values also poses a range of other significant sociotechnical challenges, such as deciding to whom these systems should be aligned. Solving these problems is important to achieving our mission, but we do not discuss them in this post.
-
-Overview Structure: I. Introduction
-The alignment research aims to make AGI aligned with human values and intent.
-II. Approach
-Iterative and empirical approach with scientific experiments to study alignment techniques.
-Tackling alignment problems in highly capable AI systems and ones expected on the path to AGI.
-Main goal is to push current alignment ideas and understand how they succeed or fail.
-III. Risks to Humanity
-Unaligned AGI poses substantial risks to humanity.
-Solving the AGI alignment problem will require cooperation.
-IV. Transparency
-Committed to openly sharing alignment research and being transparent about its effectiveness.
-Encouraging AGI developers to use the best alignment techniques.
-V. Approach to Alignment Research
-Focuses on engineering a scalable training signal aligned with human intent.
-Three main pillars: human feedback, assisting human evaluation, and alignment research.
-VI. Socio-Technical Challenges
-Aligning AI systems with human values also poses significant socio-technical challenges, but not discussed in this post.
