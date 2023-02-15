@@ -37,10 +37,10 @@ def ai_selection_runner(options, text, try_count: int = 0):
     prompt = create_prompt(init_prompt)
     ai_selection_option = generate_summary(prompt, text, llm, None)
     final_option = extract_option(ai_selection_option)
-    if final_option < 0 or final_option > 4:
+    if final_option < 1 or final_option > 4:
         print('error in the selected value. trying again\n')
         try_count += 1
-        if try_count > 3:
+        if try_count >= 3:
             print('error in AIs selected summary!!! selecting 1\n')
             final_option = 1
             return final_option - 1
