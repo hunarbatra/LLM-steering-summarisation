@@ -16,7 +16,7 @@ llm = gpt3()
 
 
 def init_prompt(use_overview_structure: bool = False, overview_structure: str = None):
-    if use_overview_structure:
+    if use_overview_structure == True:
         _prompt = SUMMARISATION_STRUCTURE_PROMPT
         _prompt +=  """
 

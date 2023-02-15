@@ -36,8 +36,8 @@ for i, level in enumerate(generation_data):
     final_summary += level[ai_choice[i]]
     
 print(generation_data)
-print(ai_choice) # check count 
+print(ai_choice) 
 
 print('\nFinal AI-selected Summary: ' + final_summary)
 
-bonsai_export_runner(root_prompt, generation_data, ai_choice, 'demo')
+bonsai_export_runner(root_prompt, generation_data, ai_choice, 'test')

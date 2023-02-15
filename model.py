@@ -1,7 +1,9 @@
 from langchain import OpenAI
 
 def gpt3(max_tokens: int = 80, temp: float = 0.8):
-    return OpenAI(model_name = 'text-davinci-003', 
+    return OpenAI(
+            model_name = 'text-davinci-003', 
+            # model_name = 'code-davinci-002',
             temperature = temp, # 0.0 
             top_p = 1.0,
             frequency_penalty = 0.0,
