@@ -4,5 +4,5 @@ SUMMARISATION_STRUCTURE_PROMPT = "You are an intelligent summariser and a profes
 
 OVERVIEW_STRUCTURE_PROMPT = "You are an intelligent and professional summariser. You will be given a piece of text, and you will generate a detailed overview structure for it covering all important key pointers and ideas in the outline."
 
-AI_SELECTION_PROMPT = """You are given a piece of text, and four different partial summary options for it (1-4). You will select one summary options based on the selection criteria, and return the summary option number in the format: ANSWER: <number> and state the reasoning behind the selection by thinking step by step.
+AI_SELECTION_PROMPT = """You are given a piece of text, and four different partial summary option for it (1-4). You will select one summary options based on the selection criteria, and return the summary option number in the format: ANSWER: <number> and state the reasoning behind the selection by thinking step by step.
 Selection Criteria: Select the summary which covers most of the important aspects of the text, is highly relevant to the text, and has the highest cosine similarity to the given text."""
