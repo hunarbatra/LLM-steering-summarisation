@@ -88,4 +88,4 @@ def bonsai_export_runner(init_prompt: str,
     }
 
     json_object = json.dumps(data_dict) 
-    save_file('json_exports/' + json_name + '.json', json_object)
+    save_file('./outputs/json_exports/' + json_name + '.json', json_object)
