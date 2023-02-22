@@ -1,0 +1,57 @@
+text,summary
+"Inducing human-like biases in moral reasoning LMs 
+
+This project is about fine-tuning language models (LMs) on a publicly available moral reasoning neuroimaging (fMRI) dataset, with the hope/expectation that this could help induce more human-like biases in the moral reasoning processes of LMs. This will be operationalized by testing if fine-tuning LMs on fMRI data (of the above-mentioned dataset) helps improve test performance on the ETHICS moral reasoning dataset and if it helps significantly more than just using additional non-neuroimaging behavioural data (moral reasoning permissibility scores) for LM fine-tuning.
+
+More broadly, this project would fit as a potential proof-of-concept in a new AI alignment research agenda I’m working on, on neuroconnectionism (comparing artificial and biological neural networks) for AI alignment. Moral reasoning is an interesting application area, both for its relevance to AI alignment and because of the availability of public neuroimaging data, as well as e.g. publicly-available LMs fine-tuned for moral reasoning.
+The non-summary
+
+Context
+
+During the last few years, a series of high-profile papers have shown that LMs partially converge towards brain-like solutions and share fundamental computational principles with humans, making them a ‘biologically feasible computational framework for studying the neural basis of language’. To the best of my awareness though, none of these have explored the potential LM-brain similarities for linguistic inputs rich in morally-relevant content (e.g. moral scenarios), nor tried to improve LM moral reasoning using moral reasoning neuroimaging datasets (though similar ideas have been explored for LMs more broadly and e.g. for Convolutional Neural Networks -CNNs- performing object recognition). 
+
+Proposal
+
+The goal of this project is to try to show some transfer, when fine-tuning LMs, between the following moral reasoning neuroimaging (fMRI) dataset and the ETHICS moral reasoning dataset (and, to be more precise, some additional transfer from using the fMRI dataset rather than just from using the behavioural permissibility moral scores part of the fMRI dataset).
+
+As will be detailed below, this could be useful for reducing risk from AGI/TAI by potentially leading to insights about how human moral reasoning functions mechanistically and by providing evidence about the feasibility of using a new process-based kind of supervision based on neuro-imaging data.
+
+The major steps involved in this research could look roughly as follows, depending on how much work might be required to show any positive transfer between the moral reasoning neuroimaging (fMRI) dataset and ETHICS: 
+neuroimaging moral reasoning dataset data preprocessing (if necessary) / use already preprocessed data in alternative format / use the dataset as processed by a model pretrained on multiple fMRI datasets (including our moral reasoning fMRI dataset)
+iterations of LM fine-tuning and result analysis:
+e.g. start by trying to fine-tune a simple, relatively small LM (e.g. just pre-trained BERT; please see fig. 1 from ‘Inducing brain-relevant bias in natural language processing models’ for an example of what this process might look like, when e.g. fine-tuning the LM to predict the entire fMRI signal - all the voxels) and just check that fMRI fine-tuning helps significantly more than only using the behavioral recordings (how permissible the study participants found the different moral scenarios), measured through the transfer learning improvement made to the ETHICS dataset 
+depending on how good the obtained results are, we can iterate by fine-tuning closer to SOTA / larger / moral reasoning fine-tuned LMs and also by using the fMRI data in other / more creative ways (e.g. parameter-efficient fine-tuning variants, using neural data regularizers, only selecting the voxels corresponding to certain brain regions that are known to be involved in moral reasoning processes in the brain - instead of using the entire brain, etc.)
+
+Some analogies / intuition pumps for the proposal:
+like feature distillation, with teacher = human in fMRI
+like process-based supervision, where process = what is measured by the fMRI (like the intermediary steps of an algorithm); major potential advantage over more traditional process-based supervision: could, in principle, also capture implicit knowledge, that experts can’t put into words (e.g. how does someone recognize an object? Or how do they intuitively judge a situation as morally [im]permissible?)
+like imitation learning with access to internals/intermediary steps of what the expert is doing (e.g. similar to procedure cloning)
+
+
+In the following, I will provide some additional considerations in a Q&A format.
+
+What’s the most ambitious version of this project? 
+
+The most ambitious version of this project would maybe look something like obtaining a state of the art result on [a portion of] the ETHICS dataset [and potentially showing additional transfer and good performance on other moral reasoning datasets], resulting in convincing [publishable in top ML conference] proof-of-concept that process supervision using neuroimaging data seems already feasible; additionally, this might also imply that maybe even collecting neuroimaging data specifically for alignment purposes should be considered. This kind of success might also spur interest from alignment community and other communities (e.g. neuroscience) in extending the neuroconnectionism research agenda to AI alignment-relevant domains, e.g. moral reasoning or pro-sociality.
+
+If the project succeeds, how would this be useful for reducing risk from AGI/TAI? 
+
+The current version of the idea is focused on human-like moral reasoning both as a proof-of-concept for a task which should be very relevant for AI existential safety (AIs which do moral reasoning in a human-like way could be very helpful) and for opportunistic reasons (existence of publicly accessible neuroimaging datasets for moral reasoning with linguistic inputs, as well as -though less crucially- of decent-sized LMs fine-tuned to do moral reasoning).
+
+The success of the project could serve as a proof-of-concept for applying the neuroconnectionism (comparing artificial and biological neural networks) research agenda to AI alignment; e.g. it could help lead to insights about how human moral reasoning functions mechanistically and provide evidence about the feasibility of using a new process-based kind of supervision (based on neuroimaging data) for fine-tuning [SOTA] AIs. 
+
+What’s the least ambitious version of this project? 
+
+In the least ambitious version of this project (especially in case we can’t make the fine-tuning work), we would write an Alignment Forum post describing the experiments and results. One potential interpretation if this project weren’t successful could be that it might be hard to use currently available neuroimaging data for alignment processes [e.g. process supervision using neuroimaging data]; with that in mind, though, I think even such a negative result would be interesting with respect to value of information.
+
+What can go wrong, and what’s the backup plan if that happens? 
+
+It might be difficult to show positive gains from the use of fMRI data (compared to just behavioral data - moral permissiveness scores from participants). On the one hand, we will experiment with different Machine Learning techniques to maximize the probability of this project being successful, e.g. by using  parameter-efficient fine-tuning methods or by optimizing the match between the representation similarity matrix of an intermediate LM layer and that obtained from the neural recordings (similar idea applied to Convolutional Neural Networks).
+
+It might also be hard to have confidence in how well the fine-tuned LM works [e.g. generalisation to other datasets] or how much it’s the fMRI data that helps [for process supervision], but I expect e.g. statistical testing / testing on other datasets to help with any such potential issues.
+
+Why would anybody expect this project to have a non-trivial chance of working? 
+
+One intuition for why/how this could work: language processing is already necessary for linguistically expressed moral scenarios; LMs already seem to partially converge towards a brain-like solution for language generally, e.g. https://www.nature.com/articles/s42003-022-03036-1  https://www.nature.com/articles/s41593-022-01026-4 (though not tested yet for morally-rich language, to the best of my awareness). It seems very plausible to me that, on the one hand, this similarity would also hold when it comes to text describing moral scenarios, and that it might be [at least slightly] improved by fine-tuning, even without very large datasets. As intuition for the last part, consider that LMs often only require just a bit of fine-tuning for specific tasks (including for moral reasoning tasks, e.g. in https://arxiv.org/pdf/2008.02275.pdf). 
+
+As an additional intuition for the feasibility of this project, previous work has already shown that the features that humans seem to use when computing image-based aesthetic preferences can also be decoded from ImageNet-pretrained Convolutional Neural Networks (as well as from human brains). It doesn't seem like a huge leap to me that this could also be happening with LMs on moral reasoning, and that this could be further improved by fMRI fine-tuning and could in turn help improve transfer to other moral reasoning datasets.","This project aims to bridge the gap between Artificial General Intelligence (AGI) and human values by employing neuroconnectionism, a technique whereby language models (LMs) are trained using neuroimaging data. The project proposes to fine-tune an LM on a moral reasoning fMRI dataset to test if this method could improve the transfer learning performance of the LM. Additionally, the project could provide insightsinto how humans intuitively judge morally permissible situations. There are two versions of the project - the least ambitious one requiring the LM to make positive gains, while the most ambitious version requires increased confidence in its predictions. The project involves data preprocessing and iterations of LM fine-tuning and result analysis. Successful implementation of the project could spur interest from alignment communities and other fields, such as neuroscience.The project is also notable for its potential to reduce risk from AGI/TAI by providing evidence about the feasibility of using a new process-based kind of supervision based on neuro-imaging data. It is also plausible that a similar process might be happening with moral reasoning, and that it could be further improved by fMRI fine-tuning. In conclusion, this project has the potential to"
